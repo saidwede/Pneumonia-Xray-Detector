@@ -34,15 +34,15 @@ os.makedirs("./models", exist_ok=True)
 # Download the models if they don't exist locally
 if not os.path.exists(cnn_model_path):
     download_model(cnn_model_url, cnn_model_path)
-if not os.path.exists(knn_model_path):
-    download_model(knn_model_url, knn_model_path)
+# if not os.path.exists(knn_model_path):
+#     download_model(knn_model_url, knn_model_path)
 
 
 # Load Model
 cnn_model = tf.keras.models.load_model(cnn_model_path)
 
-with open(knn_model_path, 'rb') as file:
-    knn_model = pickle.load(file)
+# with open(knn_model_path, 'rb') as file:
+#     knn_model = pickle.load(file)
 
 
 # Routing
@@ -80,31 +80,31 @@ def predict_with_cnn():
         return jsonify({'error': str(e)})
 
 
-@app.route('/predict-with-knn', methods=['POST'])
-def predict_with_knn():
-    try:
-        if 'image' not in request.files:
-            return jsonify({'error': 'No file part'})
+# @app.route('/predict-with-knn', methods=['POST'])
+# def predict_with_knn():
+#     try:
+#         if 'image' not in request.files:
+#             return jsonify({'error': 'No file part'})
 
-        image_file = request.files['image']
-        if image_file.filename == '':
-            return jsonify({'error': 'No selected file'})
+#         image_file = request.files['image']
+#         if image_file.filename == '':
+#             return jsonify({'error': 'No selected file'})
 
-        image = tf.io.decode_image(image_file.read(), channels=1)
-        image = tf.image.resize(image, [256, 256])
-        image = tf.expand_dims(image, 0)
+#         image = tf.io.decode_image(image_file.read(), channels=1)
+#         image = tf.image.resize(image, [256, 256])
+#         image = tf.expand_dims(image, 0)
 
-        image = tf.reshape(image, [image.shape[0], -1])
+#         image = tf.reshape(image, [image.shape[0], -1])
 
-        predictions = knn_model.predict(image)
-        predicted_class = predictions[0]
+#         predictions = knn_model.predict(image)
+#         predicted_class = predictions[0]
 
-        if int(predicted_class) == 0:
-            return jsonify({'predicted_class': 'NORMAL'})
-        else:
-            return jsonify({'predicted_class': 'PNEUMONIA'})
-    except Exception as e:
-        return jsonify({'error': str(e)})
+#         if int(predicted_class) == 0:
+#             return jsonify({'predicted_class': 'NORMAL'})
+#         else:
+#             return jsonify({'predicted_class': 'PNEUMONIA'})
+#     except Exception as e:
+#         return jsonify({'error': str(e)})
 
 
 if __name__ == '__main__':

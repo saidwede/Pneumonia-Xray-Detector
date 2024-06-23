@@ -71,7 +71,7 @@ export default function Home() {
           <select value={model} onChange={handleChange} required name="" className="dark:bg-neutral-600 dark:border-neutral-500 appearance-none outline-none w-full border rounded-lg p-3 text-xs" id="">
             <option value="" disabled>- Select model -</option>
             <option value="predict-with-cnn">CNN</option>
-            <option value="predict-with-knn">KNN</option>
+            <option value="predict-with-knn" disabled>KNN</option>
           </select>
         </div>
         
