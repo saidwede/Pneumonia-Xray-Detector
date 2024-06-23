@@ -54,9 +54,9 @@ export default function Home() {
     })
     .catch(error => {
         console.error('Error:', error);
+        setSubmitted(false)
         alert("ERROR")
     }).finally(() => {
-      setSubmitted(false)
       setLoading(false)
     });
   };
