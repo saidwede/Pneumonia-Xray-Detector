@@ -1,3 +1,4 @@
 models/model_final.keras
 models/knn.pkl
 /venv
+.env

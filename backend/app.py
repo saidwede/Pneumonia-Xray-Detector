@@ -5,16 +5,17 @@ import tensorflow as tf
 import numpy as np
 import pickle
 import requests
+from dotenv import load_dotenv
 import os
 
-
+load_dotenv()
 app = Flask(__name__)
 CORS(app)
 api = Api(app)
 
 # URLs for the models hosted on GitHub
-cnn_model_url = "https://raw.githubusercontent.com/saidwede/Pneumonia-Xray-Detector/main/models/model_final.keras"
-knn_model_url = "https://raw.githubusercontent.com/saidwede/Pneumonia-Xray-Detector/main/models/knn.pkl"
+cnn_model_url = os.getenv('CNN_MODEL_URL')
+knn_model_url = os.getenv('KNN_MODEL_URL')
 
 # Local paths where the models will be saved (relative to current working directory)
 cnn_model_path = "./models/model_final.keras"
