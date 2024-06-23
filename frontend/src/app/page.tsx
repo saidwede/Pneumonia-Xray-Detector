@@ -64,9 +64,9 @@ export default function Home() {
     setModel(event.target.value);
   };
   return (
-    <main className="flex min-h-screen flex-col items-center p-16">
-      <h1 className="text-5xl font-bold mb-6">Zoidberg App</h1>
-      <form onSubmit={handleSubmit} className="bg-neutral-100 dark:bg-neutral-700 border dark:border-neutral-500 w-96 rounded-2xl p-4 grid gap-4">
+    <main className="flex min-h-screen flex-col items-center p-4 md:p-16">
+      <h1 className="text-2xl md:text-5xl font-bold mb-6">Zoidberg App</h1>
+      <form onSubmit={handleSubmit} className="bg-neutral-100 dark:bg-neutral-700 border dark:border-neutral-500 w-full md:w-96 rounded-2xl p-4 grid gap-4">
         <div className="relative">
           <GoChevronDown className="absolute top-1/2 -translate-y-1/2 right-2" />
           <select value={model} onChange={handleChange} required name="" className="dark:bg-neutral-600 dark:border-neutral-500 appearance-none outline-none w-full border rounded-lg p-3 text-xs" id="">
