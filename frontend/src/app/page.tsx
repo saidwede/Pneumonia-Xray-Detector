@@ -50,12 +50,13 @@ export default function Home() {
         }else{
           setIsPneumonia(true)
         }
+        setSubmitted(true)
     })
     .catch(error => {
         console.error('Error:', error);
         alert("ERROR")
     }).finally(() => {
-      setSubmitted(true)
+      setSubmitted(false)
       setLoading(false)
     });
   };
