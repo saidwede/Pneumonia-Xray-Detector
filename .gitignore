@@ -1,0 +1,9 @@
+note.txt
+chest_Xray
+Zoidberg.ipynb
+bootstrap.py
+__pycache__
+checkpoints
+.ipynb_checkpoints/venv/
+zoidberg-app/.env
+backend/venv/

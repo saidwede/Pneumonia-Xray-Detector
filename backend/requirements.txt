@@ -1,0 +1,6 @@
+Flask
+Flask-RESTful
+tensorflow
+flask-cors
+scikit-learn
+requests
